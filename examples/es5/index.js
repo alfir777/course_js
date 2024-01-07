@@ -88,6 +88,13 @@ var bmw = Object.create({
 
 var createCounter = function(counterName) {
     var counter = 0
+    return function() {
+        console.log(counterName, ++counter)
+    
+}}
+
+var createCounter = function(counterName) {
+    var counter = 0
     return {
         increment: function() {
             counter++
