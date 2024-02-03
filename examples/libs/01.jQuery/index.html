@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>jQuery</h1>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        // console.log($(document.body))
+        // console.log(document.body)
+        $('<div />')
+        .css({
+            margin: '20px auto',
+            width: '200px',
+            height: '150px',
+            borderRadius: '50%',
+            background: 'red',
+            transition: '.5s transform ease-in'
+        })
+        .hover(function() {
+            $(this).css('transform', 'scale(1.1)')
+        }, function() {
+            $(this).css('transform', 'scale(1)')
+        })
+        .click(function() {
+            const $clone = $(this).clone()
+            
+            $clone.css({
+                position: 'relative',
+                top: 50,
+                background: 'blue'
+            })
+
+            $clone.click(() => $clone.fadeOut())
+
+            $(document.body).append($clone)
+        })
+        .appendTo($(document.body))
+    </script>
+</body>
+</html>
